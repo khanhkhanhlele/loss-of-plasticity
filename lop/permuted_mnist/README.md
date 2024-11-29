@@ -6,19 +6,19 @@ The first step to replicate the results is to download the data.
 ```sh
 cd lop/permuted_mnist
 mkdir data
-python3.8 load_mnist.py
+python load_mnist.py
 ```
 
 The next step is to test a learning network that uses backprop to learn.
 This command produces 10 temporary cfg files in `temp_cfg`.
 
 ```sh
-python3.8 multi_param_expr.py -c cfg/bp/std_net.json 
+python multi_param_expr.py -c cfg/bp/std_net.json 
 ```
 
 Each of the new temporary cfg files can then be used to do one run of backprop.
 ```sh
-python3.8 expr.py -c temp_cfg/0.json 
+python expr.py -c temp_cfg/0.json 
 ```
 
 Finally, after completing all the runs, the command below can be used to generate
@@ -26,7 +26,7 @@ the plot for the network specified in `cfg/bp/std_net.json`.
 
 ```sh
 cd plots
-python3.8 bp_metrics.py --cfg_file ../cfg/bp/std_net.json --metric accuracy
+python bp_metrics.py --cfg_file ../cfg/bp/std_net.json --metric accuracy
 ```
 
 The command above will generate the plot on the left below.
