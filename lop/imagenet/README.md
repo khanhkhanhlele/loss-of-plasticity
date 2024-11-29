@@ -13,19 +13,19 @@ The network is specified in [`../nets/conv_net.py`](../nets/conv_net.py)
 This command produces 30 temporary cfg files in `temp_cfg`.
 
 ```sh
-python3.8 multi_param_expr.py -c cfg/bp.json 
+python multi_param_expr.py -c cfg/bp.json 
 ```
 
 Each of the new temporary cfg files can then be used to do one run of backprop. Each run takes about 12 hours on an A-100 GPU.
 ```sh
-python3.8 expr.py -c temp_cfg/0.json 
+python expr.py -c temp_cfg/0.json 
 ```
 
 Finally, after completing all the runs, the command below can be used to generate
 the plot for the network specified in `cfg/sgd/bp.json`.
 
 ```sh
-python3.8 bp_plot.py -c cfg/bp.json 
+python bp_plot.py -c cfg/bp.json 
 ```
 
 The command above will generate the plot on the right below.
@@ -39,7 +39,7 @@ to evaluate the peformance of these methods. The results of these methods can be
 following command.
 
 ```sh
-python3.8 all_plot.py -c cfg/bp.json 
+python all_plot.py -c cfg/bp.json 
 ```
 
 The results for all the methods are presented below.
