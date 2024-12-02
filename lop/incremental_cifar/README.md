@@ -29,7 +29,7 @@ With this in mind, you can run the experiment for the base deep learning system 
 command. A single run with the base deep-learning system takes about 6 hours on an A-100 GPU.
 
 ```sh
-python3.8 incremental_cifar_experiment.py --config ./cfg/base_deep_learning_system.json --verbose \
+python incremental_cifar_experiment.py --config ./cfg/base_deep_learning_system.json --verbose \
 --experiment-index 0
 ```
 
@@ -68,7 +68,7 @@ With this in mind, you can run the script for the `base_deep_learning_system` by
 line:
 
 ```sh
-python3.8 post_run_analysis.py --results_dir ./results/base_deep_learning_system/
+python post_run_analysis.py --results_dir ./results/base_deep_learning_system/
 ```
 
 ### Reproducing the Plots in the Paper
@@ -76,7 +76,7 @@ python3.8 post_run_analysis.py --results_dir ./results/base_deep_learning_system
 You can generate the plots found in the paper using the following three commands
 
 ```sh
-python3.8 ./plots/plot_incremental_cifar_results.py --results_dir ./results/ \
+python ./plots/plot_incremental_cifar_results.py --results_dir ./results/ \
 --algorithms base_deep_learning_system,continual_backpropagation,retrained_network \
 --metric relative_accuracy_per_epoch
 ```
@@ -91,12 +91,12 @@ Whereas the following two commands generate the blue and red lines in the center
 the figure above:
 
 ```sh
-python3.8 ./plots/plot_incremental_cifar_results.py --results_dir ./results/ \
+python ./plots/plot_incremental_cifar_results.py --results_dir ./results/ \
 --algorithms base_deep_learning_system,continual_backpropagation \
 --metric next_task_dormant_units_analysis
 
 
-python3.8 ./plots/plot_incremental_cifar_results.py --results_dir ./results/ \
+python ./plots/plot_incremental_cifar_results.py --results_dir ./results/ \
 --algorithms base_deep_learning_system,continual_backpropagation \
 --metric next_task_stable_rank_analysis
 ```
@@ -105,7 +105,7 @@ Finally, to plot the raw accuracies for the base deep learning system, continual
 retrained network baseline use the following command:
 
 ```sh
-python3.8 ./plots/plot_incremental_cifar_results.py --results_dir ./results/ \
+python ./plots/plot_incremental_cifar_results.py --results_dir ./results/ \
 --algorithms base_deep_learning_system,continual_backpropagation,retrained_network \
 --metric test_accuracy_per_epoch
 ```
